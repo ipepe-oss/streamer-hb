@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+<body style="background-color: black">
+    <center>
+        <h1 id="heartbeat" style="color: white">0</h1>
+    </center>
+
+<script>
+    element = document.querySelector('#heartbeat')
+    require('electron').ipcRenderer.on('store-data', function (event,store) {
+        element.innerHTML = store
+    });
+</script>
+</body>
+</html>
